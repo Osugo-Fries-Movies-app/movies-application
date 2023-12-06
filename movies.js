@@ -1,6 +1,6 @@
 'use strict'
 
-import { getAllMovies } from "/movies-api.js"
+import { getAllMovies, editedMovie} from "/movies-api.js"
 
 // GETTING ALL MOVIES
 
@@ -8,4 +8,5 @@ import { getAllMovies } from "/movies-api.js"
     const movies = await getAllMovies();
     console.log(movies)
 })();
+
 
