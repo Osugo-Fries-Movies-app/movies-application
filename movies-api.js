@@ -32,6 +32,7 @@ function movieCards(movie) {
                     <p>Rating: ${movie.rating}</p>
                     <p>Showtimes: 2:00PM 3:15PM 5:30PM 6:45PM 7:20pm 8:15PM</p>
                     <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                    <button class="btn btn-danger delete-button" data-movie-id="${movie.id}">Delete</button>
                 </div>
             </div>
         </div>
@@ -50,6 +51,7 @@ async function showMovies() {
             moviesContainer.innerHTML += movieCards(movie);
         });
         loadingImg.style.display = 'none';
+        deleteBtnListener();
     } catch (error) {
         console.error(error);
     }
@@ -57,5 +59,77 @@ async function showMovies() {
 
 document.addEventListener('DOMContentLoaded', showMovies);
 
-// EDITING A MOVIE
+// FUNCTION THAT SAVES ADDED MOVIE WITHOUT REFRESHING PAGE
 
+
+// FUNCTION THAT SAVES EDITED MOVIE WITHOUT REFRESHING PAGE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// FUNCTION TO DELETE MOVIE WITHOUT REFRESHING PAGE
