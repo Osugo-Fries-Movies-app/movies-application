@@ -7,12 +7,12 @@
     },
     {
       "id": 2,
-      "title": "The Little Mermaid" ,
+      "title": "The Little Mermaid",
       "rating": 5
     },
     {
       "id": 3,
-      "title": "Moana" ,
+      "title": "Moana",
       "rating": 5
     },
     {
@@ -39,6 +39,16 @@
       "id": 8,
       "title": "Malificent",
       "rating": 5
+    },
+    {
+      "title": "hiu",
+      "rating": "4",
+      "id": 9
+    },
+    {
+      "title": "Tony",
+      "rating": "2",
+      "id": 10
     }
   ]
 }
