@@ -31,12 +31,8 @@ function movieCards(movie) {
                     <h2>${movie.title}</h2>
                     <p>Rating: ${movie.rating}</p>
                     <p>Showtimes: 2:00PM 3:15PM 5:30PM 6:45PM 7:20pm 8:15PM</p>
-
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                      <button type="button" class="editBtn btn btn-dark" data-bs-toggle="modal" data-bs-target="#editModal" data-movie-id="${movie.id}">Edit</button>
                     <button class="btn btn-danger delete-button" data-movie-id="${movie.id}">Delete</button>
-
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
-
                 </div>
             </div>
         </div>
@@ -55,6 +51,7 @@ async function showMovies() {
             moviesContainer.innerHTML += movieCards(movie);
         });
         loadingImg.style.display = 'none';
+        editBtnListener()
         deleteBtnListener();
     } catch (error) {
         console.error(error);
@@ -66,18 +63,18 @@ document.addEventListener('DOMContentLoaded', showMovies);
 
 // FUNCTION THAT SAVES ADDED MOVIE WITHOUT REFRESHING PAGE
 
-
 // ADDING A MOVIE
 
-async function addMovie(){
-        const movieTitle = document.querySelector('#addTitle');
-        const movieRating = document.querySelector('#addRating')
+async function addMovie() {
+    const movieTitle = document.querySelector('#addTitle');
+    const movieRating = document.querySelector('#addRating')
     const saveNewMovie = document.getElementById('saveNewMovie')
-    saveNewMovie.addEventListener("click", ()=>{
+    saveNewMovie.addEventListener("click", () => {
         console.log(movieTitle.value);
         console.log(movieRating.value);
     })
 }
+
 // addMovie()
 
 // // FUNCTION TO ADD MOVIE TO JSON
@@ -91,7 +88,7 @@ export async function createMovie() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ title: movieTitle, rating: movieRating }),
+            body: JSON.stringify({title: movieTitle, rating: movieRating}),
         });
         const createdMovie = await response.json();
         console.log(updatedMovie);
@@ -100,41 +97,80 @@ export async function createMovie() {
         console.error(error);
     }
 }
-document.querySelector('#saveNewMovie').addEventListener('click', async() => {
-await createMovie();
+
+document.querySelector('#saveNewMovie').addEventListener('click', async () => {
+    await createMovie();
 })
 
 
+// FUNCTION DELETES MOVIE WITHOUT REFRESHING PAGE
+function deleteBtnListener() {
+    const deleteBtn = document.querySelectorAll('.delete-button');
+    deleteBtn.forEach(button => {
+        button.addEventListener('click', deleteClick);
+    });
+}
 
-// EDITING A MOVIE
-export async function editedMovie(id) {
-    const movieTitle = document.querySelector('#editTitle').value;
-    const movieRating = document.querySelector('#editRating').value;
-    // const editModal = document.getElementById('editModal');
-
+async function deleteClick(event) {
+    const movieId = event.target.dataset.movieId;
+    console.log(event);
+    console.log(movieId);
     try {
-        const url = `http://localhost:3000/movies/${id}`
-        const options = {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ title: movieTitle, rating: movieRating }),
+        const response = await fetch(`http://localhost:3000/movies/${movieId}`, {
+            method: 'DELETE',
+        });
+        if (response.ok) {
+            console.log(`Movie with ID ${movieId} is deleted`);
+            showMovies();
         }
-        const response = await fetch(url,options)
-        const updatedMovie = await response.json()
-        console.log(updatedMovie);
-        return updatedMovie;
     } catch (error) {
-        console.error(error);
+        console.error('Error deleting movie with ID of:'`${movieId}`, error);
     }
 }
 
-document.querySelector('#editMovie').addEventListener('click', async (e) => {
-await editedMovie()
-})
+// FUNCTION TO EDIT MOVIES WITHOUT REFRESHING PAGE
+function editBtnListener() {
+    const editBtn = document.querySelectorAll('.editBtn');
+    editBtn.forEach(button => {
+        button.addEventListener('click', function (event) {
+            editClick(event.target.dataset.movieId)
+            // console.log(event.target.dataset.movieId)
+        });
+    });
+}
 
+async function editClick(movieId) {
+    try {
+        const response = await fetch(`http://localhost:3000/movies/${movieId}`);
+        const movieEditData = await response.json();
+        console.log(movieEditData.id)
+        populateDataFields(movieEditData);
+        document.getElementById('editMovie').addEventListener('click', function () {
+            fetch(`http://localhost:3000/movies/${movieEditData.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(
+                    {
+                        id: movieEditData.id,
+                        title:  document.getElementById('editTitle').value,
+                        rating: document.getElementById('editRating').value
+                    }
+                )
+            })
+        })
+        if (response.ok) {
+            console.log(`Movie with ID ${movieId} is edited`);
+            // You can also choose to re-fetch the movies and update the entire movie list
+            // showMovies();
+        }
+    } catch (error) {
+        console.error('Error editing movie with ID of:', movieId, error);
+    }
+}
 
-
-
-// FUNCTION THAT SAVES EDITED MOVIE WITHOUT REFRESHING PAGE
+function populateDataFields (movieDetails) {
+    document.getElementById('editTitle').value = movieDetails.title
+    document.getElementById('editRating').value = movieDetails.rating
+}

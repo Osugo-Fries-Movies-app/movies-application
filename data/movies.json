@@ -11,9 +11,7 @@
       "rating": 5
     },
     {
-      "id": 3,
-      "title": "Moana",
-      "rating": 5
+      "id": 3
     },
     {
       "id": 4,
@@ -27,8 +25,8 @@
     },
     {
       "id": 6,
-      "title": "Snow white",
-      "rating": 5
+      "title": "Snow black",
+      "rating": "5"
     },
     {
       "id": 7,
@@ -39,16 +37,6 @@
       "id": 8,
       "title": "Malificent",
       "rating": 5
-    },
-    {
-      "title": "hiu",
-      "rating": "4",
-      "id": 9
-    },
-    {
-      "title": "Tony",
-      "rating": "2",
-      "id": 10
     }
   ]
 }

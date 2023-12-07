@@ -1,6 +1,6 @@
 'use strict'
 
-import { getAllMovies, editedMovie} from "/movies-api.js"
+import { getAllMovies } from "/movies-api.js"
 
 // GETTING ALL MOVIES
 
