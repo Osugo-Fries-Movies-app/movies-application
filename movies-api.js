@@ -49,12 +49,11 @@ async function showMovies() {
         moviesContainer.innerHTML = '';
         setTimeout(() => {
             loadingImg.style.display = 'none';
-        }, 10000);
-
+        }, 5000);
         movies.forEach(movie => {
             moviesContainer.innerHTML += movieCards(movie);
         });
-
+        loadingImg.style.display = 'none';
         editBtnListener();
         // saveBtnListener()
         deleteBtnListener();
@@ -70,18 +69,22 @@ document.addEventListener('DOMContentLoaded', showMovies);
 async function addMovie() {
     const movieTitle = document.querySelector('#addTitle');
     const movieRating = document.querySelector('#addRating')
+    const moviePoster = document.querySelector('#addPoster')
     const saveNewMovie = document.getElementById('saveNewMovie')
     saveNewMovie.addEventListener("click", () => {
         console.log(movieTitle.value);
         console.log(movieRating.value);
+        console.log(moviePoster.value);
     })
 }
+addMovie()
 
 
 // FUNCTION TO ADD MOVIE TO JSON
 export async function createMovie() {
     const movieTitle = document.querySelector('#addTitle').value;
     const movieRating = document.querySelector('#addRating').value;
+    const moviePoster = document.querySelector('#addPoster').value;
 // console.log ('update movie hit')
     try {
         const response = await fetch('http://localhost:3000/movies', {
@@ -89,10 +92,12 @@ export async function createMovie() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({title: movieTitle, rating: movieRating}),
+            body: JSON.stringify({title: movieTitle, rating: movieRating, image: moviePoster}),
         });
         const createdMovie = await response.json();
-        console.log(updatedMovie);
+        showMovies()
+        // console.log(updatedMovie);
+        // appendMovieToPage(createdMovie);
         return createdMovie;
     } catch (error) {
         console.error(error);
@@ -156,6 +161,7 @@ function populateDataFields(movieEditData) {
     // PRE-POPULATING MOVIE DATA IN FORM
     document.getElementById('editTitle').value = movieEditData.title;
     document.getElementById('editRating').value = movieEditData.rating;
+document.getElementById('editPoster').value = movieEditData.image;
 
     // ADDING EVENT LISTENER TO EDIT MOVIE BUTTON
     document.getElementById('editMovie').addEventListener('click', async function () {
@@ -178,7 +184,8 @@ async function updateMovie(movieId) {
         },
         body: JSON.stringify({
             title: document.getElementById('editTitle').value,
-            rating: document.getElementById('editRating').value
+            rating: document.getElementById('editRating').value,
+            image: document.getElementById('editPoster').value
         })
     });
 

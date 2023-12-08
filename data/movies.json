@@ -1,10 +1,10 @@
 {
   "movies": [
     {
-      "id": 1,
       "title": "Princess and the Frog",
-      "rating": 5,
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShT4Pezm5GXGh2mV6f41T1QC29pT3KOjSrcTyfI10tr2b_qO1N"
+      "rating": "5",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShT4Pezm5GXGh2mV6f41T1QC29pT3KOjSrcTyfI10tr2b_qO1N",
+      "id": 1
     },
     {
       "id": 2,

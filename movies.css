@@ -8,3 +8,30 @@
     margin-left: 150px;
 margin-top: 200px;
 }
+
+.modal-footer {
+    background-color: black;
+    border: 2px solid white;
+}
+
+.modal-header {
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+
+.modal-body {
+    border: 2px solid white;
+}
+
+h1 {
+    background-color: black;
+}
+
+.modal {
+    border: 2px solid white;
+}
+
+label {
+    color: white;
+}
