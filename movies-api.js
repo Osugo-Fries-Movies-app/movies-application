@@ -1,6 +1,6 @@
 'use strict'
 
-// GETTING ALL MOVIES
+// GETTING ALL MOVIES IN CONSOLE
 export const getAllMovies = async () => {
     try {
         const moviesUrl = `http://localhost:3000/movies`;
@@ -26,11 +26,11 @@ function movieCards(movie) {
     return `
         <div class="col-md-3">
             <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src="${POSTER_API_KEY}" alt="${movie.title}">
+            <img class="card-img-top" src="${movie.image}" alt="${movie.title}">
                 <div class="card-body">
                     <h2>${movie.title}</h2>
                     <p>Rating: ${movie.rating}</p>
-                    <p>Showtimes: 2:00PM 3:15PM 5:30PM 6:45PM 7:20pm 8:15PM</p>
+                    <p>Showtimes: 2:00PM 3:15PM 5:30PM 6:45PM 7:20PM 8:15PM</p>
                       <button type="button" class="editBtn btn btn-dark" data-bs-toggle="modal" data-bs-target="#editModal" data-movie-id="${movie.id}">Edit</button>
                     <button class="btn btn-danger delete-button" data-movie-id="${movie.id}">Delete</button>
                 </div>
@@ -51,7 +51,7 @@ async function showMovies() {
             moviesContainer.innerHTML += movieCards(movie);
         });
         loadingImg.style.display = 'none';
-        editBtnListener()
+        editBtnListener();
         // saveBtnListener()
         deleteBtnListener();
     } catch (error) {
@@ -63,9 +63,6 @@ document.addEventListener('DOMContentLoaded', showMovies);
 
 
 // FUNCTION THAT SAVES ADDED MOVIE WITHOUT REFRESHING PAGE
-
-// ADDING A MOVIE
-
 async function addMovie() {
     const movieTitle = document.querySelector('#addTitle');
     const movieRating = document.querySelector('#addRating')
@@ -76,9 +73,8 @@ async function addMovie() {
     })
 }
 
-// addMovie()
 
-// // FUNCTION TO ADD MOVIE TO JSON
+// FUNCTION TO ADD MOVIE TO JSON
 export async function createMovie() {
     const movieTitle = document.querySelector('#addTitle').value;
     const movieRating = document.querySelector('#addRating').value;
@@ -153,11 +149,11 @@ async function fetchMovieDetails(movieId) {
 }
 
 function populateDataFields(movieEditData) {
-    // Populate form fields with movie data
+    // PRE-POPULATING MOVIE DATA IN FORM
     document.getElementById('editTitle').value = movieEditData.title;
     document.getElementById('editRating').value = movieEditData.rating;
 
-    // Add event listener for the editMovie button
+    // ADDING EVENT LISTENER TO EDIT MOVIE BUTTON
     document.getElementById('editMovie').addEventListener('click', async function () {
         const updatedMovie = await updateMovie(movieEditData.id);
         if (updatedMovie) {
@@ -169,7 +165,7 @@ function populateDataFields(movieEditData) {
     });
 }
 
-// SAVE EDIT
+// FUNCTION TO SAVE EDITED MOVIE
 async function updateMovie(movieId) {
     const response = await fetch(`http://localhost:3000/movies/${movieId}`, {
         method: "PUT",

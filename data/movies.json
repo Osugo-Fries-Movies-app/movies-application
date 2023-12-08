@@ -1,44 +1,52 @@
 {
   "movies": [
     {
+      "id": 1,
       "title": "Princess and the Frog",
-      "rating": "5",
-      "id": 1
+      "rating": 5,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShT4Pezm5GXGh2mV6f41T1QC29pT3KOjSrcTyfI10tr2b_qO1N"
     },
     {
+      "id": 2,
       "title": "The Little Mermaid",
-      "rating": "5",
-      "id": 2
+      "rating": 5,
+      "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSsGFkNuroj9TBgGNyvFEN65Uw5AdjSA8AkBS81iRbRnWZ9xUXe"
     },
     {
       "id": 3,
       "title": "Moana",
-      "rating": 5
+      "rating": 5,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9TcA6r0oES9P6uGyr6eypoO-xOpcCa7imrX31F4OLTJ9wEqXg"
     },
     {
       "id": 4,
       "title": "Cinderella",
-      "rating": 4
+      "rating": 4,
+      "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQobxCJv8xDFCmPDQnQL-9xBLXWwRSRyj2eTYIvLIIWN-wzIQki"
     },
     {
       "id": 5,
       "title": "Frozen",
-      "rating": 4
+      "rating": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgaIpolHV15cFspWKd4lb4wDxrqDiiihDeCBMa49cuU_D-lMpK"
     },
     {
       "id": 6,
       "title": "Snow white",
-      "rating": 5
+      "rating": 5,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6VEQXMAeW0XbOBfJe-46jUAPIOMm9c4bHFpThdths0BWKCC34"
     },
     {
       "id": 7,
       "title": "Brave",
-      "rating": 4
+      "rating": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5bofHThnUB8pniYPAW1imbJtQ0alP0S6JRXG2fDdf56sIevMa"
     },
     {
       "id": 8,
       "title": "Malificent",
-      "rating": 5
+      "rating": 5,
+      "image": "https://lumiere-a.akamaihd.net/v1/images/p_maleficent_19736_89c0d9e7.jpeg?region=0%2C0%2C540%2C810"
     }
   ]
 }
