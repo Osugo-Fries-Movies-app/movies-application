@@ -79,7 +79,6 @@ async function addMovie() {
 }
 addMovie()
 
-
 // FUNCTION TO ADD MOVIE TO JSON
 export async function createMovie() {
     const movieTitle = document.querySelector('#addTitle').value;
@@ -147,6 +146,7 @@ function editBtnListener() {
     });
 }
 
+// FETCH MOVIE DETAILS FUNCTION
 async function fetchMovieDetails(movieId) {
     const response = await fetch(`http://localhost:3000/movies/${movieId}`);
     if (response.ok) {
@@ -157,6 +157,7 @@ async function fetchMovieDetails(movieId) {
     }
 }
 
+// POPULATE EDITED MOVIE DETAILS THEN SHOWS ALL MOVIES
 function populateDataFields(movieEditData) {
     // PRE-POPULATING MOVIE DATA IN FORM
     document.getElementById('editTitle').value = movieEditData.title;

@@ -35,3 +35,18 @@ h1 {
 label {
     color: white;
 }
+
+.card {
+    transition: transform .2s;
+    margin: 0 auto;
+    background-color: black !important;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    background-color: black !important;
+}
+
+.card-body{
+    color: whitesmoke;
+}

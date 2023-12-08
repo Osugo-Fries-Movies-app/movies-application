@@ -1,10 +1,10 @@
 {
   "movies": [
     {
+      "id": 1,
       "title": "Princess and the Frog",
-      "rating": "5",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShT4Pezm5GXGh2mV6f41T1QC29pT3KOjSrcTyfI10tr2b_qO1N",
-      "id": 1
+      "rating": 5,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShT4Pezm5GXGh2mV6f41T1QC29pT3KOjSrcTyfI10tr2b_qO1N"
     },
     {
       "id": 2,
@@ -47,6 +47,30 @@
       "title": "Malificent",
       "rating": 5,
       "image": "https://lumiere-a.akamaihd.net/v1/images/p_maleficent_19736_89c0d9e7.jpeg?region=0%2C0%2C540%2C810"
+    },
+    {
+      "id": 9,
+      "title": "Encanto",
+      "rating": 5,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtagW_lWrjDNtZN5XqFrN538W8IMhNCMHIhFme-Q2FkA9Jp3e6"
+    },
+    {
+      "id": 10,
+      "title": "Alice in Wonderland",
+      "rating": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN-v0Ni0Afzw9uHyUr1wTc5q6uG-BEOIozSBFUzIGzMGioLUIg"
+    },
+    {
+      "id": 11,
+      "title": "Lilo and Stitch",
+      "rating": 5,
+      "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQw9Ewu9_4ajND2QiTemeJzm9Mpi40SlnfN-_2AVkH9dPoYO-xu"
+    },
+    {
+      "id": 12,
+      "title": "Pocahontas",
+      "rating": 4,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmb7MM69YFcAvV-T7Mc6bceR73mFqmu1I9JwOMe3yJwL4N-Lsm"
     }
   ]
 }
