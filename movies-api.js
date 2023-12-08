@@ -47,10 +47,14 @@ async function showMovies() {
         loadingImg.style.display = 'block';
         const movies = await getAllMovies();
         moviesContainer.innerHTML = '';
+        setTimeout(() => {
+            loadingImg.style.display = 'none';
+        }, 10000);
+
         movies.forEach(movie => {
             moviesContainer.innerHTML += movieCards(movie);
         });
-        loadingImg.style.display = 'none';
+
         editBtnListener();
         // saveBtnListener()
         deleteBtnListener();
